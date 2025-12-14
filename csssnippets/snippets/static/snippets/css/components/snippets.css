@@ -192,7 +192,7 @@
                     background: #333;
                     background: #05050576;
                     background: rgb(30,30,30);
-                    background: red;
+                    /* background: red; */
                     padding: 0.25rem 0.5rem ;
                     overflow-y: hidden;
                     /* max-width: 100%; */
