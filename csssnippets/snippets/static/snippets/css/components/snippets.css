@@ -1,0 +1,242 @@
+.snippets {
+    display: grid;
+    gap: 4.0rem;
+    width: 100%;
+    padding: 0.5rem;
+
+
+    .details {
+        border-radius: 0.15rem;
+        color: #bbb;
+
+        overflow: hidden;
+        background: #353535;
+        box-shadow: 0 0px 1px 1px hsla(0, 0%, 100%, 0.08);
+
+        * {
+            margin: 0;
+        }
+
+        summary {
+            display: grid;
+            grid-template-rows: auto auto;
+            /* gap: 0.75rem; */
+            padding: 1rem 2rem;
+            user-select: none;
+            position: relative;
+            background: #353535;
+            background: #05050576;
+            transition: background 1s;
+
+
+            /* box-shadow: inset 0 0 0 3px rgb(26, 25, 25); */
+            /* background: linear-gradient(160deg, hsl(0, 0%, 8%), hsl(0, 0%, 4%)); */
+
+            min-height: 140px;
+            /* width: fit-content; */
+
+            .title {
+                font-size: 1.4rem;
+                font-weight: 600;
+                padding: 0 0.5rem 1rem;
+                color: #aaa;
+                margin-right: 75px;
+            }
+
+            pre {
+                background: none;
+                padding: 0;
+                margin-bottom: auto;
+                font-size: 0.8em;
+                overflow-y: hidden;
+                white-space: normal;
+                background: #05050576;
+                background: #05050576;
+                background: rgb(30,30,30);
+                /* background: #353535; */
+                display: grid;
+                /* width: fit-content; */
+                min-width: min(100%, 400px);
+
+                .code-preview {
+                    padding: 0.25rem 0.5rem ;
+                    color: #666;
+                    
+                    border-radius: inherit;
+                    /* margin: -0.1rem 0; */
+                    display: block;
+                    opacity: 1;
+                    transition: color 1.3s ease 0.8s, opacity 1s;
+                    position: relative;
+                    font-size: 0.85rem;
+
+                    & * {
+                        transition: color 1.3s ease 0.8s;
+                    }
+
+                    &.copied {
+                        transform: translate(50%, -50%) scale(0);
+                        transition: transform 1.3s, color 0s 2s, opacity 0s 2s;
+                        overflow: visible;
+                        color: white !important;
+                        opacity: 0;
+
+                        & * {
+                            font-size: 1.2;
+                            transition: color 0 s 2s ease;
+                            color: white !important;
+                        }
+                    }
+                }
+            }
+
+            .copy-button {
+                border: none;
+                color: #999;
+
+                background: hsl(0, 0%, 7%);
+                background: none;
+                position: absolute;
+                inset: 10px 10px auto auto;
+                padding: 0.45rem 0;
+                width: 100px;
+                /* box-shadow: 0 0 0 1px #999; */
+                border-radius: 0.2rem;
+                display: grid;
+                align-content: center;
+                font-weight: 400;
+                font-size: 1em;
+                letter-spacing: 0.05em;
+                transition: transform 0.1s;
+
+                &:hover {
+                    cursor: pointer;
+                    /* background: #444; */
+                    box-shadow: 0 0 0 2px #888;
+                }
+
+                &:active {
+                    /* box-shadow: 0 0 0 2px red; */
+                }
+
+                &::after {
+                    content: 'copy';
+                }
+
+                &.copied {
+                    transition: transform 0.2s;
+
+                    &::after {
+                        content: 'copied';
+                        color: white;
+                    }
+                }
+            }
+
+            &::marker {
+                content: none;
+            }
+
+            &::before {
+                content: '˃˃';
+                position: absolute;
+                inset: 1.95rem auto auto 1.2rem;
+                display: block;
+                transition: rotate 0.35s;
+                line-height: 0em;
+                font-size: 0.5em;
+                transition: all 0.18s;
+            }
+
+            &:hover {
+                &::before {
+                    /* color: red; */
+                    transform: scale(2);
+                }
+
+                +.body {
+                    /* box-shadow: 0 0 0 3px #333; */
+                }
+            }
+        }
+
+        .body {
+            width: 100%;
+            padding: 1rem 2rem;
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: 3px;
+            background: #353535;
+            overflow-y: visible;
+            position: relative;
+            z-index: 1;
+            font-size: 0.85rem;
+
+            >* {
+                /* background: #303030; */
+            }
+
+            .description {
+                font-weight: 400;
+                font-size: 1.2rem;
+                position: relative;
+            }
+
+            .part {
+                /* margin-left: 2.5rem; */
+                padding: 0.25rem min(3.5vw, 10rem);
+                /* max-width: 500px; */
+                font-size: 1rem;
+
+                &:has(code) {
+                    background: #333;
+                    background: #05050576;
+                    background: rgb(30,30,30);
+                    background: red;
+                    padding: 0.25rem 0.5rem ;
+                    overflow-y: hidden;
+                    /* max-width: 100%; */
+                    margin-inline: min(calc(4vw - 0.5rem), calc(10rem - 0.5rem));
+
+                    code {
+                        color: #666;
+                        border-radius: inherit;
+                        display: block;
+                        opacity: 1;
+                        font-size: 0.85rem;
+                        transition: color 1.3s ease 0.8s, opacity 1s;
+                    }
+                }
+            }
+        }
+
+        &::details-content {
+            display: block;
+            height: 0;
+            transition: height 0.5s, content-visibility 0.5s;
+            transition-behavior: allow-discrete;
+
+        }
+
+        &[open] {
+
+            &::details-content {
+                height: auto;
+            }
+
+            summary {
+                .code-preview {
+                }
+            }
+
+            body {
+                background: #444;
+            }
+
+            summary::before {
+                rotate: 90deg;
+            }
+        }
+
+    }
+}

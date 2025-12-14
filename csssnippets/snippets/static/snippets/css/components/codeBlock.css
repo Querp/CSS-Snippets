@@ -1,0 +1,10 @@
+/* overwrite PrismJs styles */
+pre {
+    border: none !important;
+    box-shadow: none !important;
+    /* background: none !important; */
+}
+
+code {
+
+}

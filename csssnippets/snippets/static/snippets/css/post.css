@@ -1,0 +1,21 @@
+:root { 
+    interpolate-size: allow-keywords; 
+}
+
+details{
+  overflow: hidden;
+}
+
+details::details-content {
+  height: 0;
+  transition: height 1s, content-visibility 1s;
+  transition-behavior: allow-discrete;
+}
+
+details[open]::details-content {
+  height: auto;
+}
+
+summary {
+    list-style-position: outside;
+}

@@ -1,0 +1,18 @@
+main {
+    --main-max-w: 800px;
+    justify-self: center;
+    width: 100%;
+    max-width: var(--main-max-w);
+    transition: all 0.3s;
+}
+
+
+body:has(nav.show) {
+    @media(width > 1200px) {
+        main {
+            padding-left: var(--nav-w);
+            max-width: calc(var(--main-max-w) + var(--nav-w));
+        }
+    }
+}
+
