@@ -8,10 +8,16 @@
     .details {
         border-radius: 0.15rem;
         color: #bbb;
-
         overflow: hidden;
-        background: #353535;
-        box-shadow: 0 0px 1px 1px hsla(0, 0%, 100%, 0.08);
+        border-radius: 12px;
+
+        background: #272727;
+        background: hsl(230, 33%, 7%);
+        background: #151515;
+
+        /* background:
+            linear-gradient(hsl(0, 0%, 5%), hsl(0, 0%, 5%)) padding-box,
+            linear-gradient(135deg, #373737, #252525) border-box; */
 
         * {
             margin: 0;
@@ -20,27 +26,21 @@
         summary {
             display: grid;
             grid-template-rows: auto auto;
-            /* gap: 0.75rem; */
-            padding: 1rem 2rem;
+            padding: 1.75rem 8rem 1.75rem 4.75rem;
             user-select: none;
-            position: relative;
-            background: #353535;
-            background: #05050576;
+
             transition: background 1s;
-
-
-            /* box-shadow: inset 0 0 0 3px rgb(26, 25, 25); */
-            /* background: linear-gradient(160deg, hsl(0, 0%, 8%), hsl(0, 0%, 4%)); */
-
             min-height: 140px;
-            /* width: fit-content; */
+            border-radius: 0.15rem;
+            position: relative;
 
             .title {
-                font-size: 1.4rem;
+                font-size: 1.25rem;
                 font-weight: 600;
-                padding: 0 0.5rem 1rem;
+                padding: 0 0 1.75rem;
                 color: #aaa;
                 margin-right: 75px;
+                transition: all 0.3s;
             }
 
             pre {
@@ -50,25 +50,19 @@
                 font-size: 0.8em;
                 overflow-y: hidden;
                 white-space: normal;
-                background: #05050576;
-                background: #05050576;
-                background: rgb(30,30,30);
-                /* background: #353535; */
+                background: transparent;
                 display: grid;
-                /* width: fit-content; */
                 min-width: min(100%, 400px);
 
                 .code-preview {
-                    padding: 0.25rem 0.5rem ;
+                    padding: 0.25rem 0.5rem 0.25rem 2rem;
                     color: #666;
-                    
                     border-radius: inherit;
-                    /* margin: -0.1rem 0; */
                     display: block;
                     opacity: 1;
                     transition: color 1.3s ease 0.8s, opacity 1s;
                     position: relative;
-                    font-size: 0.85rem;
+                    font-size: 1.1rem;
 
                     & * {
                         transition: color 1.3s ease 0.8s;
@@ -93,41 +87,51 @@
             .copy-button {
                 border: none;
                 color: #999;
+                /* color: #070707; */
 
-                background: hsl(0, 0%, 7%);
-                background: none;
+                /* background: hsl(0, 0%, 7%); */
+                background: #111;
+                background: #272727;
+                /* background: none; */
                 position: absolute;
-                inset: 10px 10px auto auto;
-                padding: 0.45rem 0;
-                width: 100px;
-                /* box-shadow: 0 0 0 1px #999; */
-                border-radius: 0.2rem;
+                /* inset: 6px 6px 6px auto; */
+                inset: 15px 15px auto auto;
+                z-index: 2;
+                /* padding: 1.25rem 3rem; */
+                width: 145px;
+                height: 48px;
+                /* aspect-ratio: 1; */
+                /* border-top-right-radius: 0.5rem; */
+                /* border-bottom-right-radius: 0.5rem; */
+                /* border-radius: 0.5rem; */
+                /* border-radius: 25%; */
                 display: grid;
                 align-content: center;
-                font-weight: 400;
+                font-weight: 500;
                 font-size: 1em;
                 letter-spacing: 0.05em;
                 transition: transform 0.1s;
+                font-family: monospace;
+                /* color: #A63D40; */
+                /* writing-mode: vertical-rl; */
+                /* text-orientation: upright; */
 
                 &:hover {
                     cursor: pointer;
-                    /* background: #444; */
-                    box-shadow: 0 0 0 2px #888;
-                }
-
-                &:active {
-                    /* box-shadow: 0 0 0 2px red; */
+                    /* box-shadow: 0 0 0 2px #888; */
+                    /* background: #999; */
+                    color: white;
                 }
 
                 &::after {
-                    content: 'copy';
+                    content: 'COPY';
                 }
 
                 &.copied {
                     transition: transform 0.2s;
 
                     &::after {
-                        content: 'copied';
+                        content: 'COPIED';
                         color: white;
                     }
                 }
@@ -140,18 +144,20 @@
             &::before {
                 content: '˃˃';
                 position: absolute;
-                inset: 1.95rem auto auto 1.2rem;
+                inset: 2.7rem auto auto 2.3rem;
                 display: block;
                 transition: rotate 0.35s;
                 line-height: 0em;
-                font-size: 0.5em;
-                transition: all 0.18s;
+                font-size: 0.8em;
             }
 
             &:hover {
+                .title {
+                    /* color: #ee0979; */
+                }
+
                 &::before {
-                    /* color: red; */
-                    transform: scale(2);
+                    /* color: #ee0979; */
                 }
 
                 +.body {
@@ -162,49 +168,58 @@
 
         .body {
             width: 100%;
-            padding: 1rem 2rem calc(1rem + 3px);
+            padding: 2rem 4.75rem calc(1rem + 3px);
             display: grid;
             gap: 0.75rem;
-            /* background: #353535; */
-            background: #292b2c;
             overflow-y: visible;
             position: relative;
             z-index: 1;
-            font-size: 0.85rem;
+            background: hsl(230, 2%, 7%);
+            /* background: #272727; */
 
             >* {
-                /* background: #303030; */
             }
 
             .description {
-                font-weight: 400;
-                font-size: 1.2rem;
                 position: relative;
+            }
+
+            h3.part {
+                font-size: 1.8rem;
+                font-weight: 600;
             }
 
             .part {
                 /* margin-left: 2.5rem; */
-                padding: 0.25rem min(3.5vw, 10rem);
+                /* padding: 0.25rem min(3.5vw, 10rem); */
+                /* padding: 0.25rem 0.25rem; */
                 /* max-width: 500px; */
-                font-size: 1rem;
+                /* font-size: 1.2rem; */
+                color: #aaa;
+
 
                 &:has(code) {
-                    background: #333;
-                    background: #05050576;
-                    background: rgb(30,30,30);
-                    /* background: red; */
-                    padding: 0.25rem 0.5rem ;
+                    /* background: #333; */
+                    /* background: #05050576; */
+                    /* background: rgb(30, 30, 30); */
+                    /* background: #131313; */
+                    background: transparent;
+
+                    /* padding: 0.25rem 0.5rem; */
+                    padding: 0;
                     overflow-y: hidden;
                     /* max-width: 100%; */
-                    margin-inline: min(calc(4vw - 0.5rem), calc(10rem - 0.5rem));
+                    /* margin-inline: min(calc(4vw - 0.5rem), calc(10rem - 0.5rem)); */
+                    /* margin-left: 2rem; */
 
                     code {
                         color: #666;
                         border-radius: inherit;
                         display: block;
                         opacity: 1;
-                        font-size: 0.85rem;
+                        font-size: 1rem;
                         transition: color 1.3s ease 0.8s, opacity 1s;
+                        padding: 0.25rem 0.5rem 0.25rem 2rem;
                     }
                 }
             }
@@ -225,8 +240,7 @@
             }
 
             summary {
-                .code-preview {
-                }
+                .code-preview {}
             }
 
             body {

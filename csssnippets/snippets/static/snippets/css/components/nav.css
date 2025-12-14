@@ -34,6 +34,8 @@ nav {
     z-index: 3;
     overflow: hidden;
     background: linear-gradient(160deg, hsl(0, 0%, 11%), hsl(0, 0%, 4%));
+    background: #0d0d0d;
+    background: linear-gradient(160deg, hsl(0, 0%, 7%), hsl(0, 0%, 2%));
 
     transition: width 0.3s;
 

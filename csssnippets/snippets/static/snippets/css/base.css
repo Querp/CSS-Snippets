@@ -13,7 +13,7 @@ html {
     /* scrollbar-gutter: stable; */
     scroll-behavior: smooth;
     background: #111;
-    background: linear-gradient(160deg, hsl(0, 0%, 14%), hsl(0, 0%, 7%));
+    background: linear-gradient(160deg, hsl(0, 0%, 12%), hsl(0, 0%, 6%));
     scroll-padding-top: 4rem;
 }
 

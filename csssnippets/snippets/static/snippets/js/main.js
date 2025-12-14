@@ -1,13 +1,13 @@
 const navE = document.querySelector('nav');
 const navToggleE = document.getElementById('nav-toggle');
 
-// NAV TOGGLE
+// Nav Toggle
 navToggleE.addEventListener('click', () => {
     navE.classList.toggle('show')
 });
 
 
-// LINK CLICK => CLOSE NAV
+// Link Click => Close Nav
 navE.addEventListener('click', (event) => {
     const w = window.innerWidth;
     console.log('width', w);
@@ -20,7 +20,7 @@ navE.addEventListener('click', (event) => {
     }
 })
 
-// Init Copy Buttons EventHandlers
+// Copy Buttons EventHandlers
 function initCopyButtonEventHandlers() {
     const buttons = document.querySelectorAll('#snippets .copy-button');
 
