@@ -117,4 +117,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = '/home/querp/CSS-Snippets/csssnippets/staticfiles'
+
 STATICFILES_DIRS = []
